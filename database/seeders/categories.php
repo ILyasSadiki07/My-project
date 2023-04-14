@@ -14,13 +14,13 @@ class categories extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            'label_categories'=>'grains'
+            'label_categorie'=>'grains'
         ]);
         DB::table('categories')->insert([
-            'label_categories'=>'herbecides'
+            'label_categorie'=>'herbecides'
         ]);
         DB::table('categories')->insert([
-            'label_categories'=>'phosphates'
+            'label_categorie'=>'phosphates'
         ]);
     }
 }

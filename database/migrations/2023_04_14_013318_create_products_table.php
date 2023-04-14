@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id()->foreign('shooping_carts.id_produit');
-            $table->bigInteger('categories_id');
+            $table->bigInteger('categorie_id');
             $table->char('name_product');
             $table->double('unit_price');
             $table->longText('url_images')->nullable();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\models\Products;
+use DB;
 class GrainController extends Controller
 {
     //public function index (){
@@ -21,8 +22,19 @@ class GrainController extends Controller
       //return view("/grain",['grains'=>$grains]);
       return view(dd($grains));
     }*/
-    public function get_grain(){
-      $grains=products::all()->Categories;
+    /*public function get_grain(){
+      $grains=Products::with('categorie')
+       ->whereColumn('label_categorie','grains')
+       ->get();
       return view(dd($grains));
+    }*/
+    public function get_grain(){
+    $data = DB::table('products')
+                ->join('Categories','products.categorie_id','=','Categories.id')
+                ->select('name_product','unit_price','url_images','label_categorie')
+                ->where('label_categorie','=','grains')
+                ->get();
+                $sel=json_decode(json_encode($data), true);
+    return view("grain",['grains'=>$sel]);
     }
 }
