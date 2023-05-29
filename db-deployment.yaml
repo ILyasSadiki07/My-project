@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: C:\Users\predator\Desktop\kubrnet wprss\kompose-windows-amd64.exe convert -f .\compose.yaml
+    kompose.cmd: C:\xampp\htdocs\-Kubernetes-wordpress\kompose-windows-amd64.exe convert -f .\compose.yaml
     kompose.version: 1.28.0 (c4137012e)
   creationTimestamp: null
   labels:
@@ -18,11 +18,11 @@ spec:
   template:
     metadata:
       annotations:
-        kompose.cmd: C:\Users\predator\Desktop\kubrnet wprss\kompose-windows-amd64.exe convert -f .\compose.yaml
+        kompose.cmd: C:\xampp\htdocs\-Kubernetes-wordpress\kompose-windows-amd64.exe convert -f .\compose.yaml
         kompose.version: 1.28.0 (c4137012e)
       creationTimestamp: null
       labels:
-        io.kompose.network/kubrnetwprss-default: "true"
+        io.kompose.network/kubernetes-wordpress-default: "true"
         io.kompose.service: db
     spec:
       containers:
@@ -37,7 +37,7 @@ spec:
               value: somewordpress
             - name: MYSQL_USER
               value: wordpress
-            
+               
           image: mariadb:10.6.4-focal
           name: db
           ports:

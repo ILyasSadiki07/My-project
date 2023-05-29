@@ -1,0 +1,61 @@
+# Start the Docker containers in the background
+docker-compose up -d
+
+# Convert the Docker Compose file to Kubernetes manifests
+kompose-windows-amd64.exe
+kompose convert -f .\compose.yaml
+
+# Check the client version of kubectl
+kubectl version --client --output=yaml
+# Apply the persistent volume 
+kubectl apply -f db-data-persistentvolumeclaim.yaml
+kubectl apply -f db-deployment.yaml
+kubectl apply -f db-service.yaml
+kubectl apply -f kubrnetwprss-default-networkpolicy.yaml
+kubectl apply -f wordpress-deployment.yaml
+kubectl apply -f wordpress-service.yaml
+kubectl apply -f wordpress-data.yaml
+# Get the pods in the cluster
+kubectl get pods
+
+# Forward local port 8888 to the WordPress pod's port 80
+kubectl port-forward wordpress-6b89cffc58-ztb45 8888:80
+
+
+fr 
+# Démarrer les conteneurs Docker en arrière-plan
+docker-compose up -d
+
+# Convertir le fichier Docker Compose en manifestes Kubernetes
+kompose-windows-amd64.exe
+kompose convert -f .\compose.yaml
+
+# Vérifier la version client de kubectl
+kubectl version --client --output=yaml
+
+# Appliquer la demande de volume persistant pour les données de la base de données
+kubectl apply -f db-data-persistentvolumeclaim.yaml
+
+# Appliquer le déploiement de la base de données
+kubectl apply -f db-deployment.yaml
+
+# Appliquer le service de la base de données
+kubectl apply -f db-service.yaml
+
+# Appliquer la politique réseau pour le service WordPress
+kubectl apply -f kubrnetwprss-default-networkpolicy.yaml
+
+# Appliquer le déploiement de WordPress
+kubectl apply -f wordpress-deployment.yaml
+
+# Appliquer le service de WordPress
+kubectl apply -f wordpress-service.yaml
+
+# Appliquer la demande de volume persistant pour les données de WordPress
+kubectl apply -f wordpress-data.yaml
+
+# Obtenir les pods dans le cluster
+kubectl get pods
+
+# Rediriger le port local 8888 vers le port 80 du pod WordPress
+kubectl port-forward wordpress-68b57d74b7-dgv29 8888:80
