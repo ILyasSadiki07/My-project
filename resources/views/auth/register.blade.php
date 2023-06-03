@@ -3,10 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        
         <div class="col-md-8">
-            <div class="card-header"></div>
+            <div class="card-header">
+               
 
                 <div class="card-body">
+                   
+                </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -65,6 +69,7 @@
                                 <button type="submit" class="btn btn-primary" style="background-color:green;">
                                     {{ __('Register') }}
                                 </button>
+                               
                             </div>
                         </div>
                     </form>

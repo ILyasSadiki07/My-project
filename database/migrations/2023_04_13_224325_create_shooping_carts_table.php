@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('shooping_carts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_produit')->unique();
-            $table->timestamp('added_to_cart')->nullable();
-            $table->timestamp('buyet_at')->nullable();
+            $table->bigInteger('id_produit');
+            $table->char('name_produit')->nullable();
+            $table->double('unit_price')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
             $table->index('id_produit');
+            $table->longText('url_images')->nullable();
+
         });
     }
 

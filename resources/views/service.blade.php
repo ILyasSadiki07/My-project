@@ -38,7 +38,7 @@
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                    <h2 class="mb-0">+212603642820</h2>
+                    <h2 class="mb-0">+212641958679</h2>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -88,7 +88,7 @@
                 <a href="/login" class="nav-item nav-link" style="margin-top:-100 px">login</a>
             </div>
             <div style="">
-                <a href="/list">   <i class="fa badgee fa-lg" value=5 style="color: black">&#xf218;</i></a>
+                <a href="/show">   <i class="fa badgee fa-lg" value=5 style="color: black">&#xf218;</i></a>
                
             </div>
         </div>
@@ -161,7 +161,7 @@
                             </div>
                             <div class="d-flex mb-2">
                                 <i class="bi bi-telephone text-white me-2"></i>
-                                <p class="text-white mb-0">+212603642820</p>
+                                <p class="text-white mb-0">+212641958679</p>
                             </div>
                             <div class="d-flex mt-4">
                                 <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -177,6 +177,31 @@
                                 <a class="text-white mb-2" href="/about"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
                                 <a class="text-white mb-2" href="/service"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
                                 <a class="text-white" href="/contact"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                                @guest
+                                @if (Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+                
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -211,7 +236,7 @@
     </div>
     <div class="container-fluid bg-dark text-white py-4">
         <div class="container text-center">
-            <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">Agro Vision </a>.Copright 2023 <a class="text-secondary fw-bold" href="https://htmlcodex.com"></a></p>
+            <p class="mb-0"><a class="text-secondary fw-bold" href="#">Agro Vision </a>.Copright 2023 <a class="text-secondary fw-bold" href="https://htmlcodex.com"></a></p>
         </div>
         
     </div>

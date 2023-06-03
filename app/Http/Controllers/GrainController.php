@@ -29,12 +29,16 @@ class GrainController extends Controller
       return view(dd($grains));
     }*/
     public function get_grain(){
-    $data = DB::table('products')
-                ->join('Categories','products.categorie_id','=','Categories.id')
-                ->select('name_product','unit_price','url_images','label_categorie')
-                ->where('label_categorie','=','grains')
-                ->get();
-                $sel=json_decode(json_encode($data), true);
-    return view("grain",['grains'=>$sel]);
-    }
+      $data = DB::table('products')
+          ->join('Categories','products.categorie_id','=','Categories.id')
+          ->select('products.id','name_product','unit_price','url_images','label_categorie')
+          ->where('label_categorie','=','grains')
+          ->get();
+  
+      $sel = json_decode(json_encode($data), true);
+      $count = DB::table('shooping_carts')->count();
+      $totalPrice=0;
+      return view("grain", ['grains'=>$sel, 'countP'=>$count,'totalPrice'=>$totalPrice]);
+  }
+  
 }
