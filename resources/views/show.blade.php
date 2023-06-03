@@ -113,8 +113,8 @@
                                         <div class="mb-4 pb-2">
                                             <hr class="my-4">
                                             <div class="d-flex justify-content-between mb-5">
-                                                <h5 class="text-uppercase">Total price</h5>
-                                                <h5 id="PriceShipping">0 MAD</h5>
+                                                <h5 class="text-uppercase" id="">Total price :    MAD</h5>
+                                                <h5 id="totalfinall">0  MAD</h5>
                                             </div>
                                             <button type="button"
                                                 class="btn btn-secondary text-warning text-center  btn-block btn-lg"
@@ -162,9 +162,10 @@
                                             // Update the total price in the HTML
                                             const totalPriceElement = document.getElementById("totalPrice");
                                             totalPriceElement.innerHTML = "MAD " + totalPrice.toFixed(2);
+                                            document.getElementById("totalfinall").innerHTML = (totalPrice+30).toFixed(2);
                                         }
-
-                                        // Add event listeners to the quantity input elements
+                              
+                                  // Add event listeners to the quantity input elements
                                         products.forEach(function(product) {
                                             const quantityInput = product.querySelector("input[name='quantity']");
                                             quantityInput.addEventListener("input", calculateTotalPrice);
@@ -174,6 +175,7 @@
                                         calculateTotalPrice();
 
                                     });
+                                   
                                 </script>
 
 

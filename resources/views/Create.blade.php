@@ -29,7 +29,7 @@
 
                                 <div class="form-group">
                                     <label for="photo">Product Photo</label>
-                                    <input type="file" name="photo" id="photo" class="form-control" required>
+                                    <input type="text" name="photo" id="photo" class="form-control" required>
                                     @error('photo')
                                         <p style="color: red;">{{ $message }}</p>
                                     @enderror

@@ -17,9 +17,12 @@ Route::middleware("auth")->group(function () {
     Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
 });
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+
+Route::get('/', [IndexController::class,'index']);
 
 Route::get('/about', [AboutController::class,'index']);
 Route::get('/service', [ServiceController::class,'index']);
@@ -29,18 +32,22 @@ Route::get('/phosphat', [PhosphatController::class,'get_phosphate']);
 Route::get('/contact', [ContactController::class,'index']);
 Route::get('/show', [ShowcartController::class,'get_grain']);
 
+
+//shopping Carte
 Route::get('/ajoutProduit/{type}-{id}',[CartController::class,'addTocart']);
 Route::get('/dess/{type}-{id}',[CartController::class,'destroy']);
 Route::get('/vider',[CartController::class,'vider']);
-//Route::get('/ajoutProduit/{type}-{id}/{name_product}/{unit_price}', [CartController::class,'addTocart']);Route::get('/update22/{id}', [AdminCrudController::class, 'update'])->name('product.update');
+
+
+
+
 
 //Crud_page
 Route::resource('product', AdminCrudController::class);
-Route::get('/listeProducts', [AdminCrudController::class, 'index'])->name('index');
+Route::get('products', 'AdminCrudController@index')->name('index2');
 Route::get('/create', [AdminCrudController::class, 'create'])->name('create');
 Route::get('/show/{id}', [AdminCrudController::class, 'show'])->name('show');
-Route::get('/edit/{id}', [AdminCrudController::class, 'edit'])->name('edit');
-Route::post('/update/{id}', [AdminCrudController::class, 'update'])->name('update');
+Route::put('/product/{id}', [AdminCrudController::class, 'update'])->name('products.update');
 Route::post('/store', [AdminCrudController::class, 'store'])->name('store');
 
 

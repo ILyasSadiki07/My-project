@@ -8,7 +8,8 @@
                     <div class="card-header">Edit Product : {{$product->id}}</div>
 
                     <div class="card-body">
-                        <form action="{{ route('index') }}" method="POST">
+                        <form action="{{ route('products.update', $product->id) }}" method="POST">
+                            
                             @csrf
                             @method('PUT')
                         

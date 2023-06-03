@@ -119,7 +119,7 @@
             @endguest
             </div>
             <div style="">
-                <a href="/show"> <i class="fa badgee fa-lg" value={{$countP}} style="color: black">&#xf218;</i></a>
+                <a href="/show"> <i class="fa badgee fa-lg" value="{{$countP}}" style="color: black">&#xf218;</i></a>
 
             </div>
         </div>

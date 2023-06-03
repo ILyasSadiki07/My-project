@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Products extends Model
 {
     use HasFactory;
-
+    protected $table = 'products';
     public function categorie()
     {
         return $this->belongsTo(Categories::class);

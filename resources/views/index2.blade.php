@@ -10,6 +10,7 @@
         <table class="table mt-3">
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>id</th>
                     <th>Name</th>
                     <th>Unit Price</th>
@@ -21,7 +22,7 @@
                 
                 
                     <tr>
-                        <td><img src="{{asset('public/pack/img/'.$product->url_image)}}" alt="img" width="80px"></td>
+                        <td><img src="{{ $product->url_images }}" alt="img" width="80px"></td>
                         <td>{{ $product->id }}</td>
                         <td>{{ $product->name_product }}</td>
                         <td>{{ $product->unit_price }}</td>
@@ -29,13 +30,21 @@
                     
                     
                         <td>
-                            <a href="/product/{{$product->id}}/edit" class="btn btn-warning">update</a>
+                            <a href="/product/{{$product->id}}/edit" class="btn btn-success">Edit</a>
+                            
+                            
                         </td>
+                        {{-- <td><a href="/product/{id}" class="btn btn-info btn-sm">Show</a></td> --}}
+                       <td><a href="/product/{{$product->id}}" class="btn btn-info">Show</a></td> 
+
                         <td>
                             <form action="/product/{{$product->id}}" method="POST">
                                 @csrf
+                               
+
+
                                 @method("DELETE")
-                                <button type="submit" class="btn btn-primary">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </td>
                     </tr>

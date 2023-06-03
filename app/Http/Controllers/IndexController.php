@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use DB;
+use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class IndexController extends Controller
 {
     public function index (){
         $count = DB::table('shooping_carts')->count();
             
-        return view("about", ['countP' => $count]);
+        return view("index", ['count' => $count]);
         }
 }

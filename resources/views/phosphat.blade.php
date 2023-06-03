@@ -95,7 +95,7 @@
                 <a href="/login" class="nav-item nav-link" style="margin-top:-100 px">login</a>
             </div>
             <div style="">
-                <a href="/show"> <i class="fa badgee fa-lg" value={{ $countP }}
+                <a href="/show"> <i class="fa badgee fa-lg" value="{{$countP}}"
                         style="color: black">&#xf218;</i></a>
 
             </div>

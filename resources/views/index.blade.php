@@ -122,7 +122,7 @@
             </div>
             <div style="">
                 <a href="/show">
-                    <i class="fa badgee fa-lg"  style="color: black">&#xf218;</i>
+                    <i class="fa badgee fa-lg" value="{{$count}}" style="color: black">&#xf218;</i>
                     <span class="badge badge-pill badge-dark"></span>
                 </a>
 
