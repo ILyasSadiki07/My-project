@@ -11,4 +11,4 @@ class ServiceController extends Controller
         
     return view("service", ['countP' => $count]);
     }
-}
+}   

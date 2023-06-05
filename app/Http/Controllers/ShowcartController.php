@@ -1,14 +1,17 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\models\Products;
 use DB;
+use App\models\Products;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShowcartController extends Controller
 {
   public function get_grain()
   {
+     
+
     $data = DB::table('shooping_carts')
       ->select("id",'name_produit', 'unit_price', 'url_images')
       ->get();

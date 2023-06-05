@@ -53,14 +53,18 @@
             </div>
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-end">
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle" href="#"><i
-                            class="fab fa-instagram"></i></a>
+                    <div class="d-flex mt-4">
+                                
+                                    
+                                     
+                        <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100093506641933"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/ilyas-sadiki-54a039254/"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-primary btn-square rounded-circle" href="https://www.instagram.com/agrovisi0z/"><i
+                                class="fab fa-instagram"></i></a>
+                    
+            </div>
                 </div>
             </div>
         </div>
@@ -92,7 +96,31 @@
                 </div>
 
                 <a href="/contact" class="nav-item nav-link">Contact</a>
-                <a href="/login" class="nav-item nav-link" style="margin-top:-100 px">login</a>
+                    @guest
+                @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                @endif
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
             </div>
             <div style="">
                 <a href="/show"> <i class="fa badgee fa-lg" value="{{$countP}}"
@@ -160,14 +188,18 @@
                                                 <p class="text-white mb-0">+212641958679</p>
                                             </div>
                                             <div class="d-flex mt-4">
-                                                <a class="btn btn-secondary btn-square rounded-circle me-2"
-                                                    href="#"><i class="fab fa-twitter"></i></a>
-                                                <a class="btn btn-secondary btn-square rounded-circle me-2"
-                                                    href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a class="btn btn-secondary btn-square rounded-circle me-2"
-                                                    href="#"><i class="fab fa-linkedin-in"></i></a>
-                                                <a class="btn btn-secondary btn-square rounded-circle"
-                                                    href="#"><i class="fab fa-instagram"></i></a>
+                                                <div class="d-flex mt-4">
+                                
+                                    
+                                     
+                                                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100093506641933"><i
+                                                            class="fab fa-facebook-f"></i></a>
+                                                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/ilyas-sadiki-54a039254/"><i
+                                                            class="fab fa-linkedin-in"></i></a>
+                                                    <a class="btn btn-primary btn-square rounded-circle" href="https://www.instagram.com/agrovisi0z/"><i
+                                                            class="fab fa-instagram"></i></a>
+                                                
+                                        </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">

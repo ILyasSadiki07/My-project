@@ -10,7 +10,8 @@ class Shoopingcarts extends Model
 
     protected $table = 'shooping_carts';
 
-    protected $fillable = ['id','id_produit','name_produit','unit_price','url_images'];
+    protected $fillable = ['id_user','id_produit', 'name_produit', 'unit_price', 'url_images'];
 
+        
 
 }

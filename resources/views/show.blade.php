@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-       
+
 </head>
 
 <body>
@@ -22,34 +22,40 @@
                                 <div class="col-lg-8">
                                     <div class="p-5">
                                         <div class="d-flex justify-content-between align-items-center mb-5">
-                                             @guest
-        @if (Route::has('login'))
-            
-                <a class="nav-link" href="{{ route('login') }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>                                                        <i class="bi bi-person"></i>
-                    {{ __('Login') }}</svg>                                                        <i class="bi bi-person"></i>
-                </a>
+                                            @guest
+                                                @if (Route::has('login'))
+                                                    <a class="nav-link" href="{{ route('login') }}"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                                            <i class="bi bi-person"></i>
+                                                            {{ __('Login') }}
+                                                        </svg> <i class="bi bi-person"></i>
+                                                    </a>
+                                                @endif
+                                            @else
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false" v-pre>
+                                                    {{ Auth::user()->name }}
+                                                </a>
 
-   
-        @endif
-    @else
-        
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }}
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
+                                                <div class="dropdown-menu dropdown-menu-end"
+                                                    aria-labelledby="navbarDropdown">
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
+                                                        {{ __('Logout') }}
+                                                    </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-        
-    @endguest
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                        class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+
+                                            @endguest
                                             <h3 class="fw-bold mb-0 text-warning">My Cart</h3>
                                             <h6 class="mb-0  text-warning">You have {{ $countP }} items</h6>
                                         </div>
@@ -78,10 +84,15 @@
                                                             class="fas fa-times"></i></a>
                                                     <a href="/dess/id-{{ $grain['id'] }}"
                                                         class="btn btn-outline-danger"
-                                                        title="Retirer le produit du panier">Delete<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                                                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                                                          </svg><i class="bi bi-trash"></i></a>
+                                                        title="Retirer le produit du panier">Delete<svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-trash"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                                                            <path
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                                                        </svg><i class="bi bi-trash"></i></a>
                                                 </div>
                                             </div>
 
@@ -90,18 +101,23 @@
 
                                         <div class="pt-5" style=" btn-group dropleft text-align: center">
 
-                                            <a type="button" class="btn btn-outline-success " href="/phosphat"><- Back to
-                                                Shop</a>
-                                            <a href="/vider" class="btn btn-outline-danger ">Delete All Product -><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                                              </svg><i class="bi bi-trash"></i></a>
+                                            <a type="button" class="btn btn-outline-success " href="/phosphat">
+                                                <- Back to Shop</a>
+                                                    <a href="/vider" class="btn btn-outline-danger ">Delete All Product
+                                                        -><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-trash"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+                                                            <path
+                                                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+                                                        </svg><i class="bi bi-trash"></i></a>
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 bg-warning">
-                                    <div class="p-5  " >
+                                    <div class="p-5  ">
                                         <h3 class="fw-bold mb-5 text-center ">Summary</h3>
                                         <hr class="my-4">
                                         <div class="d-flex justify-content-between mb-4">
@@ -109,19 +125,22 @@
                                             </h5>
                                             <h5 id="totalPrice">MAD</h5>
                                         </div>
-                                        <h5 class="text-uppercase mb-3" value="30" id="Shipping">Shipping : 30.00 MAD</h5>
+                                        <h5 class="text-uppercase mb-3" value="30" id="Shipping">Shipping :
+                                            30.00 MAD</h5>
                                         <div class="mb-4 pb-2">
                                             <hr class="my-4">
                                             <div class="d-flex justify-content-between mb-5">
-                                                <h5 class="text-uppercase" id="">Total price :    MAD</h5>
-                                                <h5 id="totalfinall">0  MAD</h5>
+                                                <h5 class="text-uppercase" id="">Total price : MAD</h5>
+                                                <h5 id="totalfinall">0 MAD</h5>
                                             </div>
-                                            <button type="button"
-                                                class="btn btn-secondary text-warning text-center  btn-block btn-lg"
-                                                data-mdb-ripple-color="dark" href="">   Payement   </button>
+                                            <a type="button"
+                                                class="btn btn-secondary text-warning text-center btn-block btn-lg"
+                                                data-mdb-ripple-color="dark"
+                                                href="{{ route('create-commande') }}">Payement</a>
+
                                         </div>
                                         <div>
-                                          
+
                                         </div>
 
                                     </div>
@@ -162,10 +181,10 @@
                                             // Update the total price in the HTML
                                             const totalPriceElement = document.getElementById("totalPrice");
                                             totalPriceElement.innerHTML = "MAD " + totalPrice.toFixed(2);
-                                            document.getElementById("totalfinall").innerHTML = (totalPrice+30).toFixed(2);
+                                            document.getElementById("totalfinall").innerHTML = (totalPrice + 30).toFixed(2);
                                         }
-                              
-                                  // Add event listeners to the quantity input elements
+
+                                        // Add event listeners to the quantity input elements
                                         products.forEach(function(product) {
                                             const quantityInput = product.querySelector("input[name='quantity']");
                                             quantityInput.addEventListener("input", calculateTotalPrice);
@@ -175,7 +194,6 @@
                                         calculateTotalPrice();
 
                                     });
-                                   
                                 </script>
 
 

@@ -12,14 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('commande', function (Blueprint $table) {
-            $table->increments('id');
-            $table->date('date_commande');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('categorie_id');
-            $table->integer('quantite');
-            $table->timestamps();
+            $table->id();
+            $table->bigInteger('id_user')->default(0); // Set default value to NULL
+            $table->bigInteger('id_produit');
+            $table->char('name_produit')->nullable();
+            $table->char('email_user')->nullable();
 
+            $table->double('total_price_produit')->nullable();
+
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->index('id_produit');
+            $table->longText('url_images')->nullable();
           
     });
     }

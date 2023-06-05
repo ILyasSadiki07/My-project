@@ -39,7 +39,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-warning">Create</button>
-                                    <a href="{{ route('product.index') }}" class="btn btn-primary">Reset</a>
+                                    <a href="/product" class="btn btn-primary">Reset</a>
                                 </div>
                             </form>
                         </div>

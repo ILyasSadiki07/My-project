@@ -8,27 +8,21 @@ class Commande extends Model
 {
     protected $table = 'commande';
     
-    protected $fillable = [
-        'date_commande',
-        'user_id',
-        'product_id',
-        'categorie_id',
-        'quantite',
-    ];
+    protected $fillable = ['id_user','id_produit', 'name_produit', 'unit_price', 'url_images'];
 
     // Define the relationships with other models
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
     
     public function product()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class, 'product_id');
     }
     
     public function categorie()
     {
-        return $this->belongsTo(Categorie::class);
+        return $this->belongsTo(Categorie::class, 'categorie_id');
     }
-}
+    }    
