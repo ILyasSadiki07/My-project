@@ -22,8 +22,8 @@
 <body class="bg-image">
     <div id="app" >
         <nav class="navbar navbar-expand-md navbar shadow-sm">
-            <div class="container " " >
-                <a class="navbar-brand" href="{{ url('/') }}">
+            <div class="container "  >
+                {{-- <a class="navbar-brand" href="{{ url('/') }}"> --}}
                     <h1 style="color: rgb(255, 170, 0)">Agro<span style="color : rgb(17, 108, 17);">Vision</span></h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -89,11 +89,11 @@
 </body>
 </html>
 <style>
-    .bg-image { 
+    /* .bg-image { 
     width: 100%; 
-    height: 739px; 
-    background-image: url('{{ asset('pack/img/7942.jpg')}}'); 
+    height: 680px; 
+    background-image: url('{{ asset('pack/img/use.png')}}'); 
     background-size: 100% 100%;  
     background-repeat: no-repeat;
     } 
-</style>
+</style> */

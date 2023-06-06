@@ -63,17 +63,17 @@ class AdminCrudController extends Controller
         DB::table("products")->insert($arr); 
         return redirect("/product");
     }
-    public function show($id)
-{
-    $product = Products::find($id);
+//     public function show($id)
+// {
+//     $product = Products::find($id);
 
-    if ($product === null) {
-        // Handle the case where the product is not found
-        abort(404); // Return a 404 error page or redirect to an appropriate page
-    }
+//     if ($product === null) {
+//         // Handle the case where the product is not found
+//         abort(404); // Return a 404 error page or redirect to an appropriate page
+//     }
 
-    return view('show2', compact('product'));
-}
+//     return view('show2', compact('product'));
+// }
 
 
     

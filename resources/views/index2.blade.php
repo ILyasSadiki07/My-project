@@ -35,7 +35,7 @@
                             
                         </td>
                         {{-- <td><a href="/product/{id}" class="btn btn-info btn-sm">Show</a></td> --}}
-                       <td><a href="/product/{{$product->id}}" class="btn btn-info">Show</a></td> 
+                       {{-- <td><a href="/product/{{$product->id}}" class="btn btn-info">Show</a></td>  --}}
 
                         <td>
                             <form action="/product/{{$product->id}}" method="POST">

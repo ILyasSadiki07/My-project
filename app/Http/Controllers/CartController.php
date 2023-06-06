@@ -20,7 +20,8 @@ class CartController extends Controller
         }
         $product = Products::find($id);
     
-        $userId = Auth::id(); // Retrieve the user ID
+        $userId = Auth::id();
+         // Retrieve the user ID
     
         $cartItem = new Shoopingcarts([
             'id_user' => $userId, // Assign the user ID

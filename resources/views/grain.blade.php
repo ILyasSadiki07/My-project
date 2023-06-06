@@ -53,13 +53,12 @@
             </div>
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-end">
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
+                 
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100093506641933"><i
                             class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i
+                    <a class="btn btn-primary btn-square rounded-circle me-2" href="https://www.linkedin.com/in/ilyas-sadiki-54a039254/"><i
                             class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-primary btn-square rounded-circle" href="#"><i
+                    <a class="btn btn-primary btn-square rounded-circle" href="https://www.instagram.com/agrovisi0z/"><i
                             class="fab fa-instagram"></i></a>
                 </div>
             </div>

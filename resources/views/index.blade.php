@@ -40,7 +40,8 @@
         <div class="row gx-5 py-3 align-items-center">
             <div class="col-lg-3">
                 <div class="d-flex align-items-center justify-content-start">
-                    <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
+                    <div style="margin-right:20px;"><img src="{{ asset('pack/img/logo.png') }}" alt=""></div>
+                    {{-- <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i> --}}
                     <h2 class="mb-0">+212641958679</h2>
                 </div>
             </div>
